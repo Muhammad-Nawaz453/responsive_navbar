@@ -1,0 +1,80 @@
+/* components/Navbar.module.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #770d0d;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.menu {
+    display: flex; /* Always display flex in desktop mode */
+    list-style: none;
+    transition: max-height 0.3s ease-in;
+    overflow: hidden;
+    max-height: none; /* Remove max-height restriction for desktop */
+}
+
+
+.menu.active {
+    max-height: 300px; /* This can be used for mobile */
+}
+
+/* components/Navbar.module.css */
+.menuItem {
+    margin: 0 15px;
+    padding: 10px; /* Add some padding for better clickability */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.menuItem:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #fff; /* Change text color on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.burger {
+    display: none; /* Hide burger icon in desktop mode */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.line.active {
+    background-color: blueviolet; /* Change color when active */
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on your navbar height */
+        left: 0;
+        right: 0;
+        background-color: #333;
+        max-height: 0; /* Initially hidden in mobile */
+    }
+
+    .burger {
+        display: flex; /* Show burger icon on mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .menu {
+        max-height: none; /* Ensure menu is always visible in desktop */
+    }
+}
